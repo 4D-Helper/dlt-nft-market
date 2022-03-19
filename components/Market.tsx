@@ -1,9 +1,11 @@
 import * as React from "react";
-import { Box, Spinner, Stack, Center } from "@chakra-ui/react";
+import { Box, Spinner, Stack, Center, Button, HStack, } from "@chakra-ui/react";
 import useSellEvent from "../hooks/useSellEvent";
 import useSellItems from "../hooks/useSellItems";
 import CustomTable from "./CustomTable";
 import { getRolePropText } from "../utils/role";
+import MySellButton from "./MySellButton";
+import SellButton from "./SellButton";
 
 interface MarketProps {
   nftAddress: string;
@@ -15,13 +17,13 @@ const columns = [
     columns: [
       { Header: "ID", accessor: "id" },
       { Header: "TOKEN ID", accessor: "tokenId" },
-      { Header: '职业', accessor: 'info.role'}
+      { Header: '职业', accessor: 'info.role' }
     ]
   },
   {
     Header: "属性",
     columns: [
-      { Header: '总', accessor: "info.totalAttribute"},
+      { Header: '总', accessor: "info.totalAttribute" },
       { Header: '力', accessor: (row) => getRolePropText(row.info, 'strength') },
       { Header: '敏', accessor: (row) => getRolePropText(row.info, "agility") },
       { Header: '体', accessor: (row) => getRolePropText(row.info, "stamina") },
@@ -50,8 +52,12 @@ const Market: React.FunctionComponent<MarketProps> = ({ nftAddress }) => {
           <Spinner />
         </Center>
       )}
+      <HStack justifyContent="flex-end">
+        <SellButton />
+        <MySellButton />
+      </HStack>
       <Stack spacing={4}>
-       {query.data && <CustomTable columns={columns} data={query.data}></CustomTable>}
+        {query.data && <CustomTable columns={columns} data={query.data}></CustomTable>}
       </Stack>
     </Box>
   );
