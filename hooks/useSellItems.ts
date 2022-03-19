@@ -3,7 +3,8 @@ import useMarketContract from './useMarketContract';
 import useNftContract from './useNftContract';
 import truncateMiddle from "truncate-middle";
 import { CURRENCY } from '../constants'
-import { getAllProps } from '../utils/role';
+import { getAllProps, RoleMap } from '../utils/role';
+import { useSigner } from 'wagmi';
 
 interface useSellItemsQuery {
     nftAddress: string;
@@ -12,16 +13,18 @@ interface useSellItemsQuery {
 function useSellItems({ nftAddress }: useSellItemsQuery) {
     const contract = useMarketContract();
     const nftContract = useNftContract();
+    const [signer] = useSigner();
 
     return useQuery(
         ["SellItems", { nftAddress, chainId: contract.chainId }], 
         async () => {
             const items = await contract.getAllSales(nftAddress, 0)
             const result = [];
+            const userSelf = [];
             
-            for (let item of items) {
+            const getHero = async (item) => {
                 const heroInfo = await nftContract.getHero(item.tokenId + '');
-                result.push({
+                const formatHeroInfo = {
                     info: {
                         tokenId: heroInfo.tokenId,
                         occupation: heroInfo.occupation,
@@ -42,6 +45,7 @@ function useSellItems({ nftAddress }: useSellItemsQuery) {
                             intelligence: heroInfo.intelligence,
                             mind: heroInfo.mind,
                         }),
+                        role: RoleMap[heroInfo.occupation]
                     },
                     id: String(item.id),
                     tokenId: truncateMiddle(String(item.tokenId) || "", 5, 4, "******"),
@@ -51,11 +55,16 @@ function useSellItems({ nftAddress }: useSellItemsQuery) {
                     buyer: item.buyer,
                     startTime: String(item.startTime),
                     price: `${Number(item.price) / 10 ** 18} ${CURRENCY[String(item.currency)] ?? 'USDT'}`,
+                    priceBN: item.price,
                     status: item.status,
-                });
+                };
+                const isUserSelf = formatHeroInfo.seller.toLowerCase() === (await signer.data.getAddress()).toLowerCase();
+                console.log(isUserSelf);
+                result.push(formatHeroInfo);
+                isUserSelf && userSelf.push(formatHeroInfo);
             }
 
-            console.log(result);
+            await Promise.all(items.map(item => getHero(item)));
             return result;
         }
     );

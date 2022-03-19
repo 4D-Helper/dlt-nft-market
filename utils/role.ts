@@ -1,5 +1,12 @@
 import { Hero } from "../types";
 
+export const RoleMap = {
+    0: '骑士',
+    1: '法师',
+    2: '猎人',
+    3: '刺客'
+  }
+
 export const ROLE_NAME = {
     Warrior: '骑士',
     Rogue: '猎人',
@@ -32,15 +39,52 @@ export const jugeIsGreat = (prop: Hero, type) => {
 
 export const getRoleMainProp = (attrs: Hero, type: string) => {
     switch (type) {
-        case '骑士':
+        case ROLE_NAME.Warrior:
             return attrs.strength;
-        case '刺客':
+        case ROLE_NAME.Ranger:
             return attrs.agility;
-        case '法师':
+        case ROLE_NAME.Mage:
             return attrs.intelligence;
-        case '猎人':
+        case ROLE_NAME.Rogue:
             return attrs.strength;
         default:
             return 0;
     }
 };
+
+export const judgeMainProp = (propName: string, role: string) => {
+    switch (role) {
+        case ROLE_NAME.Warrior:
+            return propName === 'strength';
+        case ROLE_NAME.Ranger:
+            return propName === 'agility';
+        case ROLE_NAME.Mage:
+            return propName === 'intelligence';
+        case ROLE_NAME.Rogue:
+            return propName === 'strength';
+        default:
+            return false;
+    }
+}
+
+export const judgeSubProp = (propName: string, role: string) => {
+    switch (role) {
+        case ROLE_NAME.Warrior:
+            return propName === 'stamina';
+        case ROLE_NAME.Ranger:
+            return propName === 'strength';
+        case ROLE_NAME.Mage:
+            return propName === 'mind';
+        case ROLE_NAME.Rogue:
+            return propName === 'agility';
+        default:
+            return false;
+    }
+}
+
+export const getRolePropText = (props: Hero, propName) => {
+    const role = RoleMap[props.occupation];
+    const isMainProp = judgeMainProp(propName, role);
+    const isSubProp = judgeSubProp(propName, role);
+    return isMainProp ? props[propName] + "(主)" : isSubProp ? props[propName] + "(副)" : props[propName];
+}

@@ -3,6 +3,7 @@ import { Box, Spinner, Stack, Center } from "@chakra-ui/react";
 import useSellEvent from "../hooks/useSellEvent";
 import useSellItems from "../hooks/useSellItems";
 import CustomTable from "./CustomTable";
+import { getRolePropText } from "../utils/role";
 
 interface MarketProps {
   nftAddress: string;
@@ -14,20 +15,26 @@ const columns = [
     columns: [
       { Header: "ID", accessor: "id" },
       { Header: "TOKEN ID", accessor: "tokenId" },
-      { Header: 'Price', accessor: 'price' }
+      { Header: '职业', accessor: 'info.role'}
     ]
   },
   {
     Header: "属性",
     columns: [
-      { Header: '力', accessor: 'info.strength' },
-      { Header: '敏', accessor: 'info.agility' },
-      { Header: '体', accessor: 'info.stamina' },
-      { Header: '意', accessor: 'info.will' },
-      { Header: '智', accessor: 'info.intelligence' },
-      { Header: '精', accessor: 'info.mind' },
-      { Header: '总', accessor: 'info.totalAttribute' },
+      { Header: '总', accessor: "info.totalAttribute"},
+      { Header: '力', accessor: (row) => getRolePropText(row.info, 'strength') },
+      { Header: '敏', accessor: (row) => getRolePropText(row.info, "agility") },
+      { Header: '体', accessor: (row) => getRolePropText(row.info, "stamina") },
+      { Header: '意', accessor: (row) => getRolePropText(row.info, "will") },
+      { Header: '智', accessor: (row) => getRolePropText(row.info, "intelligence") },
+      { Header: '精', accessor: (row) => getRolePropText(row.info, "mind") },
     ],
+  },
+  {
+    Header: "商品信息",
+    columns: [
+      { Header: '价格', accessor: 'price' },
+    ]
   }
 ];
 

@@ -124,7 +124,7 @@ function CustomTable({ columns, data }) {
         </Tbody>
         <Tfoot>
           <Tr>
-            <Th colSpan={10}>
+            <Th colSpan={12}>
               <Wrap spacing='4px' align='center' justify='flex-end'>
                 <WrapItem>
                   <IconButton
