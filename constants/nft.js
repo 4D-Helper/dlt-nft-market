@@ -1,0 +1,790 @@
+export default [{
+    anonymous: !1,
+    inputs: [{
+        indexed: !0,
+        internalType: "address",
+        name: "owner",
+        type: "address"
+    }, {
+        indexed: !0,
+        internalType: "address",
+        name: "approved",
+        type: "address"
+    }, {
+        indexed: !0,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "Approval",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !0,
+        internalType: "address",
+        name: "owner",
+        type: "address"
+    }, {
+        indexed: !0,
+        internalType: "address",
+        name: "operator",
+        type: "address"
+    }, {
+        indexed: !1,
+        internalType: "bool",
+        name: "approved",
+        type: "bool"
+    }],
+    name: "ApprovalForAll",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    name: "CombineResult2",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    name: "CombineResult4",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    name: "DowngradeResult",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !0,
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32"
+    }, {
+        indexed: !0,
+        internalType: "bytes32",
+        name: "previousAdminRole",
+        type: "bytes32"
+    }, {
+        indexed: !0,
+        internalType: "bytes32",
+        name: "newAdminRole",
+        type: "bytes32"
+    }],
+    name: "RoleAdminChanged",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !0,
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32"
+    }, {
+        indexed: !0,
+        internalType: "address",
+        name: "account",
+        type: "address"
+    }, {
+        indexed: !0,
+        internalType: "address",
+        name: "sender",
+        type: "address"
+    }],
+    name: "RoleGranted",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !0,
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32"
+    }, {
+        indexed: !0,
+        internalType: "address",
+        name: "account",
+        type: "address"
+    }, {
+        indexed: !0,
+        internalType: "address",
+        name: "sender",
+        type: "address"
+    }],
+    name: "RoleRevoked",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !0,
+        internalType: "address",
+        name: "from",
+        type: "address"
+    }, {
+        indexed: !0,
+        internalType: "address",
+        name: "to",
+        type: "address"
+    }, {
+        indexed: !0,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "Transfer",
+    type: "event"
+}, {
+    anonymous: !1,
+    inputs: [{
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        indexed: !1,
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    name: "UpgradeResult",
+    type: "event"
+}, {
+    inputs: [],
+    name: "DEFAULT_ADMIN_ROLE",
+    outputs: [{
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "FATIGUE_ROLE",
+    outputs: [{
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "to",
+        type: "address"
+    }, {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "approve",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "owner",
+        type: "address"
+    }],
+    name: "balanceOf",
+    outputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "blackHole",
+    outputs: [{
+        internalType: "address",
+        name: "",
+        type: "address"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "bool",
+        name: "newbie",
+        type: "bool"
+    }],
+    name: "buyHero",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256[]",
+        name: "tokenIds",
+        type: "uint256[]"
+    }, {
+        internalType: "bool",
+        name: "newbie",
+        type: "bool"
+    }],
+    name: "combine",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [],
+    name: "dlt",
+    outputs: [{
+        internalType: "contract IERC20Metadata",
+        name: "",
+        type: "address"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "downgradeLv",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "getApproved",
+    outputs: [{
+        internalType: "address",
+        name: "",
+        type: "address"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "getChainID",
+    outputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "getHero",
+    outputs: [{
+        components: [{
+            internalType: "uint256",
+            name: "tokenId",
+            type: "uint256"
+        }, {
+            internalType: "enum IHero.Occupation",
+            name: "occupation",
+            type: "uint8"
+        }, {
+            internalType: "uint8",
+            name: "level",
+            type: "uint8"
+        }, {
+            internalType: "uint16",
+            name: "strength",
+            type: "uint16"
+        }, {
+            internalType: "uint16",
+            name: "agility",
+            type: "uint16"
+        }, {
+            internalType: "uint16",
+            name: "stamina",
+            type: "uint16"
+        }, {
+            internalType: "uint16",
+            name: "will",
+            type: "uint16"
+        }, {
+            internalType: "uint16",
+            name: "intelligence",
+            type: "uint16"
+        }, {
+            internalType: "uint16",
+            name: "mind",
+            type: "uint16"
+        }, {
+            internalType: "uint256",
+            name: "fatigue",
+            type: "uint256"
+        }, {
+            internalType: "bool",
+            name: "newbie",
+            type: "bool"
+        }],
+        internalType: "struct IHero.Property",
+        name: "",
+        type: "tuple"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32"
+    }],
+    name: "getRoleAdmin",
+    outputs: [{
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "gold",
+    outputs: [{
+        internalType: "contract IERC20Metadata",
+        name: "",
+        type: "address"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32"
+    }, {
+        internalType: "address",
+        name: "account",
+        type: "address"
+    }],
+    name: "grantRole",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32"
+    }, {
+        internalType: "address",
+        name: "account",
+        type: "address"
+    }],
+    name: "hasRole",
+    outputs: [{
+        internalType: "bool",
+        name: "",
+        type: "bool"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "heroPrice",
+    outputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "initConfig",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "_dlt",
+        type: "address"
+    }, {
+        internalType: "address",
+        name: "_gold",
+        type: "address"
+    }],
+    name: "initialize",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "owner",
+        type: "address"
+    }, {
+        internalType: "address",
+        name: "operator",
+        type: "address"
+    }],
+    name: "isApprovedForAll",
+    outputs: [{
+        internalType: "bool",
+        name: "",
+        type: "bool"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "name",
+    outputs: [{
+        internalType: "string",
+        name: "",
+        type: "string"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "ownerOf",
+    outputs: [{
+        internalType: "address",
+        name: "",
+        type: "address"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32"
+    }, {
+        internalType: "address",
+        name: "account",
+        type: "address"
+    }],
+    name: "renounceRole",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32"
+    }, {
+        internalType: "address",
+        name: "account",
+        type: "address"
+    }],
+    name: "revokeRole",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "from",
+        type: "address"
+    }, {
+        internalType: "address",
+        name: "to",
+        type: "address"
+    }, {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "safeTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "from",
+        type: "address"
+    }, {
+        internalType: "address",
+        name: "to",
+        type: "address"
+    }, {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }, {
+        internalType: "bytes",
+        name: "_data",
+        type: "bytes"
+    }],
+    name: "safeTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "operator",
+        type: "address"
+    }, {
+        internalType: "bool",
+        name: "approved",
+        type: "bool"
+    }],
+    name: "setApprovalForAll",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "dltAddress",
+        type: "address"
+    }],
+    name: "setDlt",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "goldAddress",
+        type: "address"
+    }],
+    name: "setGold",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "price",
+        type: "uint256"
+    }],
+    name: "setHeroPrice",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "bytes4",
+        name: "interfaceId",
+        type: "bytes4"
+    }],
+    name: "supportsInterface",
+    outputs: [{
+        internalType: "bool",
+        name: "",
+        type: "bool"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "symbol",
+    outputs: [{
+        internalType: "string",
+        name: "",
+        type: "string"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "index",
+        type: "uint256"
+    }],
+    name: "tokenByIndex",
+    outputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "owner",
+        type: "address"
+    }, {
+        internalType: "uint256",
+        name: "index",
+        type: "uint256"
+    }],
+    name: "tokenOfOwnerByIndex",
+    outputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "tokenURI",
+    outputs: [{
+        internalType: "string",
+        name: "",
+        type: "string"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "totalProperty",
+    outputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [],
+    name: "totalSupply",
+    outputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "address",
+        name: "from",
+        type: "address"
+    }, {
+        internalType: "address",
+        name: "to",
+        type: "address"
+    }, {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "transferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }, {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    name: "upgradeConfig",
+    outputs: [{
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+    }],
+    stateMutability: "view",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }],
+    name: "upgradeLv",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}, {
+    inputs: [{
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256"
+    }, {
+        internalType: "uint256",
+        name: "fatigue",
+        type: "uint256"
+    }],
+    name: "useFatigue",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+}]
