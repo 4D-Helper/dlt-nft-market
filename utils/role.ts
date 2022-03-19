@@ -1,3 +1,5 @@
+import { Hero } from "../types";
+
 export const ROLE_NAME = {
     Warrior: '骑士',
     Rogue: '猎人',
@@ -5,7 +7,7 @@ export const ROLE_NAME = {
     Ranger: '刺客',
 }
 
-export const getAllProps = (props) => {
+export const getAllProps = (props: Record<string, number>) => {
     let result = 0;
     Object.keys(props).forEach((key) => {
         result += props[key];
@@ -13,7 +15,7 @@ export const getAllProps = (props) => {
     return result;
 };
 
-export const jugeIsGreat = (prop, type) => {
+export const jugeIsGreat = (prop: Hero, type) => {
     switch (type) {
         case ROLE_NAME.Warrior:
             return prop.strength > 85 && prop.stamina > 60;
@@ -28,7 +30,7 @@ export const jugeIsGreat = (prop, type) => {
     }
 };
 
-export const getRoleMainProp = (attrs, type) => {
+export const getRoleMainProp = (attrs: Hero, type: string) => {
     switch (type) {
         case '骑士':
             return attrs.strength;

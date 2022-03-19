@@ -8,37 +8,33 @@ interface MarketProps {
   nftAddress: string;
 }
 
+const columns = [
+  {
+    Header: "职业信息",
+    columns: [
+      { Header: "ID", accessor: "id" },
+      { Header: "TOKEN ID", accessor: "tokenId" },
+      { Header: 'Price', accessor: 'price' }
+    ]
+  },
+  {
+    Header: "属性",
+    columns: [
+      { Header: '力', accessor: 'info.strength' },
+      { Header: '敏', accessor: 'info.agility' },
+      { Header: '体', accessor: 'info.stamina' },
+      { Header: '意', accessor: 'info.will' },
+      { Header: '智', accessor: 'info.intelligence' },
+      { Header: '精', accessor: 'info.mind' },
+      { Header: '总', accessor: 'info.totalAttribute' },
+    ],
+  }
+];
+
 const Market: React.FunctionComponent<MarketProps> = ({ nftAddress }) => {
   const query = useSellItems({ nftAddress });
 
   useSellEvent({ nftAddress });
-
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: "职业信息",
-        columns: [
-          {
-            Header: "ID",
-            accessor: "id"
-          },
-          {
-            Header: "TOKEN ID",
-            accessor: "tokenId"
-          },
-          {
-            Header: 'Price',
-            accessor: 'price'
-          }
-        ]
-      },
-      {
-        Header: "属性",
-        
-      }
-    ],
-    []
-  );
 
   return (
     <Box>

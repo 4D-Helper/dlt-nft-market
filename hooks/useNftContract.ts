@@ -4,16 +4,16 @@ import NFTABI from "../constants/nft.js";
 
 export interface HeroInfo {
     tokenId: string;
-    occupation: string;
-    level: string;
-    strength: string;
-    agility: string;
-    stamina: string;
-    will: string;
-    intelligence: string;
-    mind: string;
+    occupation: number;
+    level: number;
+    strength: number;
+    agility: number;
+    stamina: number;
+    will: number;
+    intelligence: number;
+    mind: number;
     fatigue: string;
-    newbie: string;
+    newbie: boolean;
 }
 
 function useMarketContract() {
