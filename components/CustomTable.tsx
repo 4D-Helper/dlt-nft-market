@@ -26,6 +26,7 @@ import {
 } from "@chakra-ui/react";
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import { ChevronUpIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { v4 as uuidv4 } from 'uuid';
 
 // todo:
 // 1. 过滤条件，1) 过滤合格与不合格 2) 过滤主属性 大于多少 3) 排序 Price
@@ -81,12 +82,12 @@ function CustomTable({ columns, data }) {
       <Table {...getTableProps()}>
         <Thead>
           {headerGroups.map((headerGroup) => (
-            <Tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
+            <Tr {...headerGroup.getHeaderGroupProps()} key={uuidv4()}>
               {headerGroup.headers.map((column: any) => (
                 // Add the sorting props to control sorting. For this example
                 // we can add them into the header props
                 <Th
-                  key={column.id}
+                  key={uuidv4()}
                   userSelect="none"
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
@@ -112,10 +113,10 @@ function CustomTable({ columns, data }) {
           {rows.map((row, i) => {
             prepareRow(row);
             return (
-              <Tr {...row.getRowProps()} key={row.id}>
+              <Tr {...row.getRowProps()} key={uuidv4()}>
                 {row.cells.map((cell, idx) => {
                   return (
-                    <Td key={`${idx}-${cell.value}`} {...cell.getCellProps()}>{cell.render("Cell")}</Td>
+                    <Td key={uuidv4()} {...cell.getCellProps()}>{cell.render("Cell")}</Td>
                   );
                 })}
               </Tr>

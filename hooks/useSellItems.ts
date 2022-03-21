@@ -58,7 +58,7 @@ function useSellItems({ nftAddress }: useSellItemsQuery) {
                     priceBN: item.price,
                     status: item.status,
                 };
-                const isUserSelf = formatHeroInfo.seller.toLowerCase() === (await signer.data.getAddress()).toLowerCase();
+                const isUserSelf = formatHeroInfo.seller.toLowerCase() === (await signer.data?.getAddress())?.toLowerCase();
                 console.log(isUserSelf);
                 result.push(formatHeroInfo);
                 isUserSelf && userSelf.push(formatHeroInfo);
